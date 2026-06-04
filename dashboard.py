@@ -122,7 +122,7 @@ def calculate_bollinger_bands(data):
     return data
 def load_stock(file_name):
 
-    path = os.path.join("data", file_name)
+    path = file_name
 
     temp_df = pd.read_csv(path)
 
@@ -135,7 +135,7 @@ st.markdown("---")
 # LOAD DATA
 # =========================
 
-DATA_FOLDER = "data"
+DATA_FOLDER = ""
 
 stocks = {
     "Reliance": "reliance.csv",
@@ -164,9 +164,7 @@ selected_stock = st.sidebar.selectbox(
 )
 
 
-file_path = os.path.join(
-    DATA_FOLDER,
-    stocks[selected_stock]
+file_path = stocks[selected_stock]
 )
 
 df = pd.read_csv(file_path)
